@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>72fe3955-ab79-4473-b06d-9edc0dc8c0d9</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>dmn_train.py</StartupFile>
+    <StartupFile>math\2_support_vector_machine.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -12,8 +12,10 @@
     <Name>Ed</Name>
     <RootNamespace>Ed</RootNamespace>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>-b9 -tplus</CommandLineArguments>
+    <CommandLineArguments>-b20 -tplus</CommandLineArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+    <InterpreterId>Global|PythonCore|3.6</InterpreterId>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +41,144 @@
     <Compile Include="dmn_train.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="glove.py" />
+    <Compile Include="math\1_gradient_descent.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="math\2_support_vector_machine.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pyplot\pyplot_formatstr.py" />
+    <Compile Include="pyplot\pyplot_simple.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".vscode\" />
+    <Folder Include=".vs\" />
+    <Folder Include=".vs\config\" />
+    <Folder Include=".vs\Ed\" />
+    <Folder Include=".vs\Ed\v14\" />
+    <Folder Include=".vs\Ed\v15\" />
+    <Folder Include="math\" />
+    <Folder Include="pyplot\" />
+    <Folder Include="summaries\" />
+    <Folder Include="summaries\train\" />
+    <Folder Include="summaries\train\2018-02-20 13 24\" />
+    <Folder Include="summaries\train\2018-02-20 15 20\" />
+    <Folder Include="summaries\train\2018-02-20 20 56\" />
+    <Folder Include="summaries\train\2018-02-21 08 11\" />
+    <Folder Include="summaries\train\2018-02-21 10 25\" />
+    <Folder Include="summaries\train\2018-02-21 11 45\" />
+    <Folder Include="summaries\train\2018-02-22 04 47\" />
+    <Folder Include="summaries\train\2018-02-22 05 08\" />
+    <Folder Include="summaries\train\2018-02-22 07 59\" />
+    <Folder Include="summaries\train\2018-02-22 10 04\" />
+    <Folder Include="summaries\train\2018-02-23 12 32\" />
+    <Folder Include="summaries\train\2018-02-23 13 40\" />
+    <Folder Include="summaries\train\2018-02-23 14 31\" />
+    <Folder Include="summaries\train\2018-02-23 15 50\" />
+    <Folder Include="summaries\train\2018-02-23 17 06\" />
+    <Folder Include="summaries\train\2018-02-23 19 57\" />
+    <Folder Include="summaries\train\2018-02-23 22 03\" />
+    <Folder Include="summaries\train\2018-02-24 08 09\" />
+    <Folder Include="summaries\train\2018-02-24 10 20\" />
+    <Folder Include="summaries\train\2018-02-24 11 06\" />
+    <Folder Include="summaries\train\2018-02-24 11 30\" />
+    <Folder Include="summaries\train\2018-02-24 12 38\" />
+    <Folder Include="weights\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".vscode\launch.json" />
+    <Content Include=".vs\config\applicationhost.config" />
+    <Content Include=".vs\ProjectSettings.json" />
+    <Content Include=".vs\slnx.sqlite" />
+    <Content Include=".vs\VSWorkspaceState.json" />
+    <Content Include="math\data.csv" />
+    <Content Include="summaries\train\2018-02-20 13 24\events.out.tfevents.1519154732.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-20 15 20\events.out.tfevents.1519161781.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-20 20 56\events.out.tfevents.1519182010.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-21 08 11\events.out.tfevents.1519222341.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-21 10 25\events.out.tfevents.1519230362.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-21 11 45\events.out.tfevents.1519235359.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-22 04 47\events.out.tfevents.1519296503.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-22 05 08\events.out.tfevents.1519297801.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-22 07 59\events.out.tfevents.1519308062.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-22 10 04\events.out.tfevents.1519315581.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-23 12 32\events.out.tfevents.1519410770.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-23 13 40\events.out.tfevents.1519414871.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-23 14 31\events.out.tfevents.1519417918.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-23 15 50\events.out.tfevents.1519422659.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-23 17 06\events.out.tfevents.1519427248.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-23 19 57\events.out.tfevents.1519437508.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-23 22 03\events.out.tfevents.1519445023.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-24 08 09\events.out.tfevents.1519481417.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-24 10 20\events.out.tfevents.1519489239.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-24 11 06\events.out.tfevents.1519492029.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-24 11 30\events.out.tfevents.1519493489.KEITH-PC" />
+    <Content Include="summaries\train\2018-02-24 12 38\events.out.tfevents.1519497536.KEITH-PC" />
+    <Content Include="weights\checkpoint" />
+    <Content Include="weights\task1.weights.data-00000-of-00001" />
+    <Content Include="weights\task1.weights.index" />
+    <Content Include="weights\task1.weights.meta" />
+    <Content Include="weights\task10.weights.data-00000-of-00001" />
+    <Content Include="weights\task10.weights.index" />
+    <Content Include="weights\task10.weights.meta" />
+    <Content Include="weights\task11.weights.data-00000-of-00001" />
+    <Content Include="weights\task11.weights.index" />
+    <Content Include="weights\task11.weights.meta" />
+    <Content Include="weights\task12.weights.data-00000-of-00001" />
+    <Content Include="weights\task12.weights.index" />
+    <Content Include="weights\task12.weights.meta" />
+    <Content Include="weights\task13.weights.data-00000-of-00001" />
+    <Content Include="weights\task13.weights.index" />
+    <Content Include="weights\task13.weights.meta" />
+    <Content Include="weights\task14.weights.data-00000-of-00001" />
+    <Content Include="weights\task14.weights.index" />
+    <Content Include="weights\task14.weights.meta" />
+    <Content Include="weights\task15.weights.data-00000-of-00001" />
+    <Content Include="weights\task15.weights.index" />
+    <Content Include="weights\task15.weights.meta" />
+    <Content Include="weights\task16.weights.data-00000-of-00001" />
+    <Content Include="weights\task16.weights.index" />
+    <Content Include="weights\task16.weights.meta" />
+    <Content Include="weights\task17.weights.data-00000-of-00001" />
+    <Content Include="weights\task17.weights.index" />
+    <Content Include="weights\task17.weights.meta" />
+    <Content Include="weights\task18.weights.data-00000-of-00001" />
+    <Content Include="weights\task18.weights.index" />
+    <Content Include="weights\task18.weights.meta" />
+    <Content Include="weights\task19.weights.data-00000-of-00001" />
+    <Content Include="weights\task19.weights.index" />
+    <Content Include="weights\task19.weights.meta" />
+    <Content Include="weights\task2.weights.data-00000-of-00001" />
+    <Content Include="weights\task2.weights.index" />
+    <Content Include="weights\task2.weights.meta" />
+    <Content Include="weights\task20.weights.data-00000-of-00001" />
+    <Content Include="weights\task20.weights.index" />
+    <Content Include="weights\task20.weights.meta" />
+    <Content Include="weights\task3.weights.data-00000-of-00001" />
+    <Content Include="weights\task3.weights.index" />
+    <Content Include="weights\task3.weights.meta" />
+    <Content Include="weights\task4.weights.data-00000-of-00001" />
+    <Content Include="weights\task4.weights.index" />
+    <Content Include="weights\task4.weights.meta" />
+    <Content Include="weights\task5.weights.data-00000-of-00001" />
+    <Content Include="weights\task5.weights.index" />
+    <Content Include="weights\task5.weights.meta" />
+    <Content Include="weights\task6.weights.data-00000-of-00001" />
+    <Content Include="weights\task6.weights.index" />
+    <Content Include="weights\task6.weights.meta" />
+    <Content Include="weights\task7.weights.data-00000-of-00001" />
+    <Content Include="weights\task7.weights.index" />
+    <Content Include="weights\task7.weights.meta" />
+    <Content Include="weights\task8.weights.data-00000-of-00001" />
+    <Content Include="weights\task8.weights.index" />
+    <Content Include="weights\task8.weights.meta" />
+    <Content Include="weights\task9.weights.data-00000-of-00001" />
+    <Content Include="weights\task9.weights.index" />
+    <Content Include="weights\task9.weights.meta" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

@@ -1,2 +1,2 @@
-model_checkpoint_path: "task8.weights"
-all_model_checkpoint_paths: "task8.weights"
+model_checkpoint_path: "task20.weights"
+all_model_checkpoint_paths: "task20.weights"
